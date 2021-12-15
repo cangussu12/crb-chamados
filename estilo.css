@@ -1,0 +1,11 @@
+#principal {
+    background-color: rgb(255, 255, 255);
+    height: 400px;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+body {
+    background: #d9d9d9;
+}
