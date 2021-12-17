@@ -1,3 +1,8 @@
+<?php
+    require "./crb_controller.php";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,25 +30,31 @@
         </button>
     </div>
     </nav>
+
 </head>
 
 <body>
 <div id="principal" class="container app">
     <label style="padding-top: 15px;"><b>Abertura de chamado</b></label>
-    <hr/>
-			<div class="row">
-				<div class="col-md-3 menu">
-                    <a>Selecione o tipo do problema:</a>
-                    <div class="mb-1">
-                        <select class="form-select" aria-label="Disabled select example">
-                            <option selected>...</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-					</div>
-				</div>
-			</div>
+        <hr/>
+            <form action="enviar.php" name="form_contato" method="POST">
+                <div class="row">
+                    <div class="col-md-3 menu">
+                        <a>Selecione o departamento:</a>
+                        <div class="mb-1">
+                            <select name="setor" class="form-select" aria-label="Disabled select example">
+                                <option selected disabled>...</option>
+                                <option value="rh">RH</option>
+                                <option value="2">Financeiro</option>
+                                <option value="3">Gestão de Risco</option>
+                                <option value="4">Support T.I</option>
+                            </select>
+                        </div>                
+                    </div>
+
+                </div>
+                <button id="botao" type="submit">Enviar</button>
+            </form>
 </div>
 
 </body>
