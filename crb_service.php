@@ -18,7 +18,7 @@
        $registro = $stmt->rowCount();
 
        if ($registro != 0) {
-            echo "entrou";
+            header("Location: index.php");
         } else {
            echo "erro";     
         }

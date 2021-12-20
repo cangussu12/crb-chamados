@@ -1,5 +1,5 @@
 <?php
-    require "./crb_controller.php";
+    require "./crb_service.php";
 
 ?>
 
