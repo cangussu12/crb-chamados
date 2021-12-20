@@ -23,20 +23,14 @@
         <span class="text-muted">Abertura de chamado</span>
     </div>
     </div>
-    <nav class="navbar navbar-light" style="background-color: #fff0e6;">
-    <div class="container-fluid">
-        <button style="background-color: white;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-    </nav>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </head>
 
 <body>
     <div class="container app" style="padding-top: 20px;">
-        <img src="img/CRB-Logo-retina.png" width="300px" height="100px">
+        <img src="img/crb-logo.png" width="250px" height="80px">
     </div>
     <div id="principal" class="container app">
         <label style="padding-top: 15px;"><b>Abertura de chamado</b></label>
@@ -55,25 +49,33 @@
                             </div>
 
                             <a>Selecione a categoria:</a>
-
                             <!-- Puxa as categorias -->
                             <select class="form-select" name='categorias'>
                             </select>
 
                             <a>Telefone:</a>
                             <div class="mb-1">
-                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="(00) 00000-0000">
+                                <input name="telefone" type="number" class="form-control" id="exampleFormControlInput1" placeholder="(00) 00000-0000">
                             </div>
                             <a>Cidade:</a>
                             <div class="mb-1">
                                 <select class="form-select" name='cidade'>
-                                    <option value='1'>Sorocaba</option>
-                                    <option value='2'>Campinas</option>
+                                    <option value='Sorocaba'>Sorocaba</option>
+                                    <option value='Campinas'>Campinas</option>
                                 </select>
                             </div>
-                            <a>Carregar imagem</a>
-                            <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputGroupFile01">
+                            <a>Local:</a>
+                            <div class="mb-1">
+                            <select class="form-select" name='local'>
+                                    <option value='Infinity Office'>Infinity Office</option>
+                                    <option value='Hemisphere Office'>Hemisphere Office</option>
+                                    <option value='Obra Figueira'>Obra Figueira</option>
+                                    <option value='Obra Origem'>Obra Origem</option>
+                                    <option value='Obra Lúmio'>Obra Lúmio</option>
+                                    <option value='Obra LeMonde'>Obra LeMonde</option>
+                                    <option value='PDV Lúmio'>PDV Lúmio</option>
+                                    <option value='PDV Figueira'>PDV Figueira</option>
+                                </select>
                             </div>
                         </div>
                         
@@ -81,12 +83,12 @@
                         <div class="col-md-6 menu">
                             <a>Título:</a>
                             <div class="mb-1">
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titulo do chamado">
+                                <input name="titulo" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titulo do chamado">
                             </div>
 
                             <a>Descrição:</a>
                             <div class="mb-6">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                                <textarea name="descricao" class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
                             </div>
                             <button id="botao" type="submit">Enviar</button>
                         </div>
@@ -94,7 +96,12 @@
                         <!-- terceira coluna imagem -->
                         <div class="col-md-3 menu">
                             <div class="mb-1">
-                                <img src="img/tt.png" width="90%" height="50%">
+                                <img src="img/tt.png" width="90%" height="50%" disabled>
+                            </div>
+                            <br />
+                            <a>Carregar imagem</a>
+                            <div class="input-group mb-3">
+                                <input name="upload" type="file" class="form-control" id="inputGroupFile01">
                             </div>
 
                         </div>
@@ -103,30 +110,30 @@
                     
                     <!-- options que comunicam com o jquery para jogar dentro do select (categorias) -->
                     <div class="hidden categorias-f1">
-                        <option value='12'>Relógio ponto</option>
-                        <option value='13'>Carteira de trabalho</option>
-                        <option value='14'>Atestado</option>
-                        <option value='15'>Vale-transporte</option>
-                        <option value='16'>VR-Refeição</option>
+                        <option value='Relógio ponto'>Relógio ponto</option>
+                        <option value='Carteira de trabalho'>Carteira de trabalho</option>
+                        <option value='>Atestado'>Atestado</option>
+                        <option value='Vale-transporte'>Vale-transporte</option>
+                        <option value='VR-Refeição'>VR-Refeição</option>
                     </div>
 
                     <div class="hidden categorias-f2">
-                        <option value='17'>Reembolso</option>
-                        <option value='18'>Salário</option>
+                        <option value='Reembolso'>Reembolso</option>
+                        <option value='Salário'>Salário</option>
                     </div>
 
                     <div class="hidden categorias-f3">
-                        <option value='19'>Solicitação de EPI</option>
-                        <option value='20'>Solicitação de usuario (GDFor)</option>
-                        <option value='21'>Registrar incidente</option>
+                        <option value='Solicitação de EPI'>Solicitação de EPI</option>
+                        <option value='Solicitação de usuario (GDFor)'>Solicitação de usuario (GDFor)</option>
+                        <option value='Registrar incidente'>Registrar incidente</option>
                     </div>      
 
                     <div class="hidden categorias-f4">
-                        <option value='22'>Sistema</option>
-                        <option value='22'>Hardware (Notebook,mouse...)</option>
-                        <option value='22'>Impressora</option>
-                        <option value='22'>Criação de usuário</option>
-                        <option value='22'>E-mail</option>
+                        <option value='Sistema'>Sistema</option>
+                        <option value='Hardware (Notebook,mouse...)'>Hardware (Notebook,mouse...)</option>
+                        <option value='Impressora'>Impressora</option>
+                        <option value='Criação de usuário'>Criação de usuário</option>
+                        <option value='E-mail'>E-mail</option>
                     </div>      
      
                 </form>
