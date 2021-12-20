@@ -1,28 +1,29 @@
 <?php
+     try {
+        $base = new PDO("mysql:host=localhost;dbname=db_chamados_crb", "root", "");
 
-class CategoriaService {
+        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    private $conexao;
+        $query = "SELECT * FROM usuarios WHERE email = :email AND senha = :senha";
+        $stmt = $base->prepare($query);
 
-    public function __construct(Conexao $conexao) {
-        $this->conexao = $conexao->conectar();
-        
-    }
+        $email = ($_POST["email"]);
+        $senha = ($_POST["senha"]);
 
-    public function recuperar() { //read
-        $query = "SELECT * FROM categorias_post ORDER BY id";
-        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(":email", $email);
+        $stmt->bindValue(":senha", $senha);
+
         $stmt->execute();
-        return $stmt->fetchAll();
-    }
 
-    public function subcategoria() { //read
-        $query = "SELECT * FROM sub_categorias_post ORDER BY id";
-        $stmt = $this->conexao->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
+       $registro = $stmt->rowCount();
+
+       if ($registro != 0) {
+            echo "entrou";
+        } else {
+           echo "erro";     
+        }
+     }catch (Exception $e){
+        die("Error" . $e->getMessage());
+     }
     
-}
-
 ?>
