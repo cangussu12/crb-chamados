@@ -1,7 +1,5 @@
 <?php
 
-require_once "./crb_service.php";
-
 
 ?>
 
@@ -29,7 +27,7 @@ require_once "./crb_service.php";
 <div class="container app" style="padding-top: 20px;">
   <br />
   <br/>
-  <form class="container-sm" style="width: 300px; height:20px;" action="" method="post">
+  <form class="container-sm" style="width: 300px; height:20px;" action="logar.php" method="POST">
   <div class="row">
       <div class="form-floating mb-3">
           <img src="img/crb-logo.png" width="100%" height="100%">

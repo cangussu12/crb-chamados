@@ -1,5 +1,5 @@
 <?php
-    require "./crb_service.php";
+    require "verifica.php";
 
 ?>
 
@@ -29,12 +29,32 @@
 
 </head>
 
+
 <body>
     <div class="container app" style="padding-top: 20px;">
         <img src="img/crb-logo.png" width="250px" height="80px">
+        <div style="text-align: right;">
     </div>
+    
+    <label style="padding-top: 1px; padding-left: 50px;">
+                Olá 
+            
+                <?php  
+                    $str = $nomeusuario;
+                    $s = explode("@",$str);
+                    array_pop($s); #remove last element.
+                    $s = implode("@",$s);
+                    print $s;
+                ?>
+            </label>
+            
     <div id="principal" class="container app">
-        <label style="padding-top: 15px;"><b>Abertura de chamado</b></label>
+    
+        <label style="padding-top: 12px;"><b>Abertura de chamado</b></label>
+        <?php
+        if ($perfil == 2) { ?>
+            <a style="padding-left: 30px;" href="usuarios.php"><button type="button" class="btn btn-outline-secondary">Administração</button></a>
+       <?php } ?>
             <hr/>
                 <form action="enviar.php" name="form_contato" method="POST">
                     <div class="row">
@@ -74,7 +94,7 @@
                                     <option value='Obra Origem'>Obra Origem</option>
                                     <option value='Obra Lúmio'>Obra Lúmio</option>
                                     <option value='Obra LeMonde'>Obra LeMonde</option>
-                                    <option value='PDV Lúmio'>PDV Lúmio</option>
+                                    <option value='PDV Lumio'>PDV Lúmio</option>
                                     <option value='PDV Figueira'>PDV Figueira</option>
                                 </select>
                             </div>
@@ -111,7 +131,7 @@
                     
                     <!-- options que comunicam com o jquery para jogar dentro do select (categorias) -->
                     <div class="hidden categorias-f1">
-                        <option value='Relógio ponto'>Relógio ponto</option>
+                        <option value='Relogio ponto'>Relógio ponto</option>
                         <option value='Carteira de trabalho'>Carteira de trabalho</option>
                         <option value='>Atestado'>Atestado</option>
                         <option value='Vale-transporte'>Vale-transporte</option>
