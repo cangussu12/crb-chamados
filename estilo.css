@@ -1,5 +1,5 @@
 #principal {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(245, 245, 245);
     height: 435px;
     align-items: center;
     border-radius: 20px;
@@ -7,8 +7,10 @@
 }
 
 body {
-    background: #d9d9d9;
+    background: white;
 }
+
+
 
 
 #botao {
@@ -33,20 +35,21 @@ body {
 }
 
 #botao:hover {
-    background-color: white;
-    color: #df6c00;
-    border: 2px solid #df6c00;
+    background-color: rgba(23, 192, 23, 0.918);
+    color: #ffffff;
+    border: 2px solid #ffffff;
 }
 
 #logar {
     background-color: #df6c00; 
     color: rgb(255, 255, 255); 
+    font-size: 15px;
     border: 2px solid rgb(221, 221, 221);
     border-radius: 5px;
 }
 
 #logar:hover {
-    background-color: white;
-    color: #df6c00;
-    border: 2px solid #df6c00;
+    background-color: rgba(23, 192, 23, 0.918);
+    color: #ffffff;
+    border: 2px solid #ffffff;
 }

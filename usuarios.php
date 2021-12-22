@@ -1,8 +1,10 @@
 <?php
 
     require "verifica.php";
+
 ?>
 
+<?php if ( $perfil == 2) { ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,10 +45,11 @@
         <div style="text-align: right;">
     </div>
 
-    <div id="principal" class="container app">
+    <div id="" class="container app">
         
         <label style="padding-top: 12px;"><b>Usuarios cadastrados no sistema</b></label>
-        <a style="padding-left: 30px;" href="usuarios.php"><button type="button" class="btn btn-outline-secondary">Adicionar novo usuario</button></a>
+        <a style="padding-left: 15px;" href="index.php"> <button id="logar" type="submit">Voltar</button></a>
+        <a href="novo_usuario.php"><button type="button" id="logar">Adicionar</button></a>
             <hr/>
 
             <div class="row">
@@ -69,9 +72,10 @@
                                 </div>
                             </div>
                             <hr/>
+                            
                         <?php foreach ($lista_usuarios as $usuarios => $usuario) { ?>
-                            <div class="container">
-                            <div class="row row-cols-4" style="text-align: center; font-size:13px">
+                            <div class="container" style=" padding-top:8px;">
+                            <div class="row row-cols-4" style="text-align: center; font-size:13px; border-radius:5px; background-color: rgb(245, 245, 245); padding-top:10px; padding-bottom:10px">
                                 <div class="col">
                                     <?php echo $usuario['email']?>
                                 </div>
@@ -86,21 +90,26 @@
                                         } else {
                                             echo 'Administrador';
                                         }
-
                                     ?>
                                 </div>
                                 <div class="col">
-                                        <i class="fas fa-trash-alt fa-lg text-danger"></i>
-                                        <i class="fas fa-edit fa-lg text-info"></i>
+                                        <i onclick="remover(<?php $usuario['id'] ?>)" class="fas fa-trash-alt fa-lg text-danger"></i>
+                                        <!--<i class="fas fa-edit fa-lg text-info"></i> -->
                                 </div>
                             </div>
                             </div>
-                            <hr/>
+
                 
                            <?php } ?>
 
                     </div>
                 </div>
             </div>
+    </div>
+</div>
 </body>
 </html>
+
+<?php } else
+    echo 'você não tem permissão para acessar essa pagina !';
+?>

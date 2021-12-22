@@ -18,7 +18,7 @@ $cidade = $_POST['cidade'];
 $local = $_POST['local'];
 $titulo = $_POST['titulo'];
 $descricao = $_POST['descricao'];
-$upload = $_POST['upload'];
+$upload = $_FILES['upload'];
 $data_envio = date('d/m/Y');
 $hora_envio = date('H:i:s');
 
@@ -31,6 +31,7 @@ if ($setor = '1') {
 } elseif ($setor = '4') {
     $setor = 'Support T.I';
 }
+
 
 
 require_once "usuario.class.php";
@@ -46,6 +47,9 @@ $arquivo = "
 <!DOCTYPE html>
 <html lang='en'>
 <head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 
@@ -68,7 +72,7 @@ $arquivo = "
     <tr>
                 <td class='mostra'  width='125'><center><b>Telefone:</b></center></td><td width='185'><center>$telefone</center></td>
               </tr>
-                <td class='mostra'  width='125'><center><b>Local: </b></center></td><td width='185'><center>$cidade</center></td>
+                <td class='mostra'  width='125'><center><b>Cidade: </b></center></td><td width='185'><center>$cidade</center></td>
                 </tr>
                 <td class='mostra'  width='125'><center><b>Local: </b></center></td><td width='185'><center>$local</center></td>
         </tr>
@@ -89,14 +93,22 @@ $mailer->Port = 587; //Indica a porta de conexão
 $mailer->Host = 'smtp.live.com';//Endereço do Host do SMTP 
 $mailer->SMTPAuth = true; //define se haverá ou não autenticação 
 $mailer->Username = 'leonardo.cangussu@crbconstrutora.com.br'; //Login de autenticação do SMTP
-$mailer->Password = '9v34yhDe'; //Senha de autenticação do SMTP
+$mailer->Password = ''; //Senha de autenticação do SMTP
 $mailer->FromName = $email_usuario; //Nome que será exibido
 $mailer->From = $email_usuario; //Obrigatório ser 
 $mailer->AddAddress('leonardo.cangussu@crbconstrutora.com.br');
 
 //Destinatários
-$mailer->Subject = $titulo;
+if ($cidade == 'Campinas') {
+    $titulo_cidade = '[CPS]'. $titulo;
+}else {
+    $titulo_cidade = '[SRO]'. $titulo;
+}
+
+$mailer->Subject = $titulo_cidade;
 $mailer->isHTML(true);
+$mailer->AddAttachment($upload);
+$mailer->CharSet = 'UTF-8';
 $mailer->Body = $arquivo;
 if(!$mailer->Send())
 {

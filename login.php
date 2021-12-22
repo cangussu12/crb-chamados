@@ -39,11 +39,11 @@
           <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating">
-          <input type="text" class="form-control" id="floatingPassword" placeholder="Password" name="senha">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="senha">
           <label for="floatingPassword">Password</label>
       </div>
       <div class="input-group mb-2" style="padding-top: 10px;">
-          <button type="submit" id="logar">Entrar</button>
+          <button type="submit" id="botao">Entrar</button>
       </div>
   </form>
 </div>

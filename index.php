@@ -32,34 +32,24 @@
 
 <body>
     <div class="container app" style="padding-top: 20px;">
-        <img src="img/crb-logo.png" width="250px" height="80px">
+        <img src="img/crb-logo.png" width="250px" height="80px" disabled>
         <div style="text-align: right;">
     </div>
     
-    <label style="padding-top: 1px; padding-left: 50px;">
-                Olá 
-            
-                <?php  
-                    $str = $nomeusuario;
-                    $s = explode("@",$str);
-                    array_pop($s); #remove last element.
-                    $s = implode("@",$s);
-                    print $s;
-                ?>
-            </label>
+    <br />
             
     <div id="principal" class="container app">
     
         <label style="padding-top: 12px;"><b>Abertura de chamado</b></label>
         <?php
         if ($perfil == 2) { ?>
-            <a style="padding-left: 30px;" href="usuarios.php"><button type="button" class="btn btn-outline-secondary">Administração</button></a>
+            <a style="padding-left: 30px;" href="usuarios.php"><button type="button" id="logar">Administração</button></a>
        <?php } ?>
             <hr/>
                 <form action="enviar.php" name="form_contato" method="POST">
                     <div class="row">
                         <div class="col-md-3 menu">
-                            <a>Selecione o departamento:</a>
+                            <a style="font-size: 13px">Selecione o departamento:</a>
                             <div class="mb-1">
                                 <select class="form-select" name='setor'>
                                     <option value='1'>RH</option>
@@ -69,23 +59,23 @@
                                 </select>
                             </div>
 
-                            <a>Selecione a categoria:</a>
+                            <a style="font-size: 13px">Selecione a categoria:</a>
                             <!-- Puxa as categorias -->
                             <select class="form-select" name='categorias'>
                             </select>
 
-                            <a>Telefone:</a>
+                            <a style="font-size: 13px">Telefone:</a>
                             <div class="mb-1">
-                                <input name="telefone" type="number" class="form-control" id="exampleFormControlInput1" placeholder="(00) 00000-0000">
+                                <input class="form-control" id="exampleFormControlInput1" placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')">
                             </div>
-                            <a>Cidade:</a>
+                            <a style="font-size: 13px">Cidade:</a>
                             <div class="mb-1">
                                 <select class="form-select" name='cidade'>
                                     <option value='Sorocaba'>Sorocaba</option>
                                     <option value='Campinas'>Campinas</option>
                                 </select>
                             </div>
-                            <a>Local:</a>
+                            <a style="font-size: 13px">Local:</a>
                             <div class="mb-1">
                             <select class="form-select" name='local'>
                                     <option value='Infinity Office'>Infinity Office</option>
@@ -102,12 +92,12 @@
                         
                         <!-- segunda coluna do preenchimento -->
                         <div class="col-md-6 menu">
-                            <a>Título:</a>
+                            <a style="font-size: 13px">Título:</a>
                             <div class="mb-1">
                                 <input name="titulo" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titulo do chamado">
                             </div>
 
-                            <a>Descrição:</a>
+                            <a style="font-size: 13px">Descrição:</a>
                             <div class="mb-6">
                                 <textarea name="descricao" class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
                             </div>
@@ -117,12 +107,24 @@
                         <!-- terceira coluna imagem -->
                         <div class="col-md-3 menu">
                             <div class="mb-1">
-                                <img src="img/tt.png" width="90%" height="50%" disabled>
+                                <!-- Mensagem de olá + usuario -->
+                                <label style="font-size: 13px">
+                                    Olá,                                
+                                    <?php  
+                                        $str = $nomeusuario;
+                                        $s = explode("@",$str);
+                                        array_pop($s); #remove last element.
+                                        $s = implode("@",$s);
+                                        print $s;
+                                    ?>
+                                    !
+                                </label>
+                                <img src="img/tt.png" width="90%" height="20%" disabled>
                             </div>
-                            <br />
-                            <a>Carregar imagem</a>
-                            <div class="input-group mb-3">
-                                <input name="upload" type="file" class="form-control" id="inputGroupFile01">
+                            
+                            <a style="font-size: 13px">Carregar imagem</a>
+                            <div class="input-group mb-2" style="padding-top:5px">
+                                <input name="upload" type="file" class="form-control">
                             </div>
 
                         </div>
@@ -180,6 +182,10 @@
         
     });
 </script>
+
+   <!-- mascara telefone -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
 
 </body>
 </html>

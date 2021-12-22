@@ -12,7 +12,11 @@
 
         if($u->login($email, $senha) == true){
             if(isset($_SESSION['idUsuario'])) {
-                header("Location: usuarios.php");
+                if($senha == 'Mudar@123') {
+                    header("Location: mudarsenha.php");
+                } else {
+                    header("Location: index.php");
+                }
             }
         } else {
             header("Location: login.php");
