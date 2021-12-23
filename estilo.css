@@ -43,13 +43,28 @@ body {
 #logar {
     background-color: #df6c00; 
     color: rgb(255, 255, 255); 
-    font-size: 15px;
+    font-size: 14px;
     border: 2px solid rgb(221, 221, 221);
     border-radius: 5px;
 }
 
 #logar:hover {
-    background-color: rgba(23, 192, 23, 0.918);
+    background-color: silver;
     color: #ffffff;
     border: 2px solid #ffffff;
+    
+}
+#id {
+    background-color: #e91531c2; 
+    color: rgb(255, 255, 255); 
+    font-size: 12px;
+    border: 2px solid rgb(221, 221, 221);
+    border-radius: 5px;
+}
+
+#id:hover {
+    background-color:silver;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    
 }

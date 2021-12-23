@@ -86,21 +86,25 @@
                                     <?php 
                                         $usuario['sit'];
                                         if ($usuario['sit'] == 1) {
-                                            echo 'usuario';
+                                            echo 'Usuario';
                                         } else {
                                             echo 'Administrador';
                                         }
                                     ?>
                                 </div>
                                 <div class="col">
-                                        <i onclick="remover(<?php $usuario['id'] ?>)" class="fas fa-trash-alt fa-lg text-danger"></i>
-                                        <!--<i class="fas fa-edit fa-lg text-info"></i> -->
+
+                                <?php
+                                   $id = $usuario['id'];
+                       
+                                ?>      <form action="remover_usuario.php" method="POST">
+                                            <button name="id" value="<?php echo $id ?>" type="submit" id="id">excluir</button>
+                                        </form>                                     
                                 </div>
                             </div>
                             </div>
 
-                
-                           <?php } ?>
+                <?php }?>
 
                     </div>
                 </div>
@@ -110,6 +114,7 @@
 </body>
 </html>
 
-<?php } else
+<?php } else {
     echo 'você não tem permissão para acessar essa pagina !';
+}
 ?>

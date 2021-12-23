@@ -66,7 +66,7 @@
 
                             <a style="font-size: 13px">Telefone:</a>
                             <div class="mb-1">
-                                <input class="form-control" id="exampleFormControlInput1" placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')">
+                                <input name="telefone "class="form-control" id="exampleFormControlInput1" placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')">
                             </div>
                             <a style="font-size: 13px">Cidade:</a>
                             <div class="mb-1">

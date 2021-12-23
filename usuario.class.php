@@ -114,24 +114,26 @@
 
                     return $array;
                 }
-
-                public function remover($id) {
-
+                
+                function remover($id) {
+                    
                     global $pdo;
 
                     $array = array();
 
-                    $sql = "DELETE FROM usuarios WHERE id = :id";
+                    $sql = "DELETE FROM usuarios WHERE id = {$id}";
                     $sql = $pdo->prepare($sql);
-                    $sql->bindValue(":id", $id);
+                    //$sql->bindValue(":id", $id);
                     $sql->execute();
 
                     if($sql->rowCount() > 0) {
                         $array = $sql->fetch();
                     }
                     return $array;
-                    header('Location: usuarios.php');
+                   // header('Location: usuarios.php');
+                   
                 }
+                
               
             }
 
