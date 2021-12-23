@@ -40,6 +40,24 @@
                     return $array;
                 }
 
+                
+             public function pegasenha() {
+
+                global $pdo;
+
+                $array = array();
+
+                $sql = "SELECT senha FROM usuarios WHERE id = '1'";
+                $sql = $pdo->prepare($sql);
+                $sql->execute();
+
+                if($sql->rowCount() > 0) {
+                    $array = $sql->fetch();
+                }
+
+                return $array;
+            }
+
                 public function usuarios() {
 
                     global $pdo;

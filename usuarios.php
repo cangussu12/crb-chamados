@@ -30,6 +30,12 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>Usuarios</title>
+
+    <nav style="text-align: right; padding-right: 30px; padding-top:5px;">
+        <a href="encerrar_sessao.php">
+            <button type="button" class="btn btn-secondary">SAIR</button>
+        </a>
+    </nav>
 </head>
 <body>
     <?php

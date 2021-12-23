@@ -27,11 +27,14 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
+    <nav style="text-align: right; padding-right: 30px; padding-top:5px;">
+        <a href="encerrar_sessao.php"><button type="button" class="btn btn-secondary">SAIR</button></a>
+    </nav>
 </head>
 
 
 <body>
-    <div class="container app" style="padding-top: 20px;">
+    <div class="container app" style="padding-top: 5px;">
         <img src="img/crb-logo.png" width="250px" height="80px" disabled>
         <div style="text-align: right;">
     </div>
@@ -66,7 +69,7 @@
 
                             <a style="font-size: 13px">Telefone:</a>
                             <div class="mb-1">
-                                <input name="telefone "class="form-control" id="exampleFormControlInput1" placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')">
+                                <input name="telefone" class="form-control" id="exampleFormControlInput1" placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')">
                             </div>
                             <a style="font-size: 13px">Cidade:</a>
                             <div class="mb-1">

@@ -33,15 +33,18 @@ if ($setor = '1') {
 }
 
 
-
 require_once "usuario.class.php";
 $u = new Usuario();
 $listalogado = $u->logado($_SESSION['idUsuario']);
 $email_usuario = $listalogado['email'];
 
+$pegar_senha = $u->pegasenha();
+$senha = $pegar_senha['senha'];
+var_dump($senha);
+
 require_once('./PHPMailer-FE_v4.11/_lib/class.phpmailer.php');
 
-//campos que pega os posts
+
 // Compo E-mail
 $arquivo = "
 <!DOCTYPE html>
@@ -96,7 +99,7 @@ $mailer->Username = 'leonardo.cangussu@crbconstrutora.com.br'; //Login de autent
 $mailer->Password = ''; //Senha de autenticação do SMTP
 $mailer->FromName = $email_usuario; //Nome que será exibido
 $mailer->From = $email_usuario; //Obrigatório ser 
-$mailer->AddAddress('leonardo.cangussu@crbconstrutora.com.br');
+$mailer->AddAddress('support@cangussu.zohodesk.com');
 
 //Destinatários
 if ($cidade == 'Campinas') {
