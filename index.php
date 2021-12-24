@@ -28,6 +28,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <nav style="text-align: right; padding-right: 30px; padding-top:5px;">
+    <label style="font-size: 13px">
+                                    Olá,                                
+                                    <?php  
+                                        $str = $nomeusuario;
+                                        $s = explode("@",$str);
+                                        array_pop($s); #remove last element.
+                                        $s = implode("@",$s);
+                                        print $s;
+                                    ?>
+                                    
+                                </label>
         <a href="encerrar_sessao.php"><button type="button" class="btn btn-secondary">SAIR</button></a>
     </nav>
 </head>
@@ -111,17 +122,6 @@
                         <div class="col-md-3 menu">
                             <div class="mb-1">
                                 <!-- Mensagem de olá + usuario -->
-                                <label style="font-size: 13px">
-                                    Olá,                                
-                                    <?php  
-                                        $str = $nomeusuario;
-                                        $s = explode("@",$str);
-                                        array_pop($s); #remove last element.
-                                        $s = implode("@",$s);
-                                        print $s;
-                                    ?>
-                                    !
-                                </label>
                                 <img src="img/tt.png" width="90%" height="20%" disabled>
                             </div>
                             

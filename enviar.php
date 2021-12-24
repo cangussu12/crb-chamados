@@ -18,10 +18,11 @@ $cidade = $_POST['cidade'];
 $local = $_POST['local'];
 $titulo = $_POST['titulo'];
 $descricao = $_POST['descricao'];
-$upload = $_FILES['upload'];
+//$upload = $_FILES['upload'];
 $data_envio = date('d/m/Y');
 $hora_envio = date('H:i:s');
 
+/*
 if ($setor = '1') {
     $setor = 'RH';
 } elseif ($setor = '2') {
@@ -31,7 +32,7 @@ if ($setor = '1') {
 } elseif ($setor = '4') {
     $setor = 'Support T.I';
 }
-
+*/
 
 require_once "usuario.class.php";
 $u = new Usuario();
@@ -99,18 +100,29 @@ $mailer->Username = 'leonardo.cangussu@crbconstrutora.com.br'; //Login de autent
 $mailer->Password = ''; //Senha de autenticação do SMTP
 $mailer->FromName = $email_usuario; //Nome que será exibido
 $mailer->From = $email_usuario; //Obrigatório ser 
-$mailer->AddAddress('support@cangussu.zohodesk.com');
+
 
 //Destinatários
 if ($cidade == 'Campinas') {
-    $titulo_cidade = '[CPS]'. $titulo;
+    $titulo_cidade = '[CPS]'.'['.$categorias.'] - '. $titulo;
 }else {
-    $titulo_cidade = '[SRO]'. $titulo;
+    $titulo_cidade = '[SRO]'.'['.$categorias.'] - '. $titulo;
 }
 
 $mailer->Subject = $titulo_cidade;
 $mailer->isHTML(true);
-$mailer->AddAttachment($upload);
+//$mailer->AddAttachment($upload);
+//$mailer->AddAddress('');
+if ($setor == '1') {
+    $mailer->AddAddress('rh@cangussu.zohodesk.com');
+} else if ($setor == '2'){
+    $mailer->AddAddress('financeiro@cangussu.zohodesk.com');
+} else if ($setor == '3'){
+    $mailer->AddAddress('grc@cangussu.zohodesk.com');
+} else if ($setor == '4'){
+    $mailer->AddAddress('support@cangussu.zohodesk.com');
+}
+
 $mailer->CharSet = 'UTF-8';
 $mailer->Body = $arquivo;
 if(!$mailer->Send())
