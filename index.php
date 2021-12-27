@@ -27,7 +27,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-    <nav style="text-align: right; padding-right: 30px; padding-top:5px;">
+    <nav style="text-align: right; padding-right: 30px; padding-top:5px; width:85%">
     <label style="font-size: 13px">
                                     Olá,                                
                                     <?php  
