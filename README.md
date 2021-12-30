@@ -1,4 +1,4 @@
 # crb-chamados
-Sistema de chamados - CRB COSTRUTORA
+Sistema de chamados - CRB CONSTRUTORA
 
 Leonardo Cangussu
